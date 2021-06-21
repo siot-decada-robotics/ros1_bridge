@@ -44,6 +44,8 @@ To run the following examples you will also need these ROS 1 packages:
 * `rostopic`
 * `rqt_image_view`
 
+You will also have to clone the updated ros perception plugins from the 
+
 ### Building the bridge from source
 
 Before continuing you should have the prerequisites for building ROS 2 from source installed following [these instructions](https://github.com/ros2/ros2/wiki/Installation).
@@ -57,13 +59,24 @@ Therefore the `CMAKE_PREFIX_PATH` must not contain paths from ROS 1 which would 
 
 Here are the steps for Linux and OSX.
 
+First clone the ros_perception_plugins into your src folder in your bridge workspace:
+
+```
+git clone -b ros2 https://github.com/ros-perception/image_transport_plugins.git
+```
+After which build the workspace with foxy.
+
 You should first build everything but the ROS 1 bridge with normal colcon arguments.
 We don't recommend having your ROS 1 environment sourced during this step as it can add other libraries to the path.
 
 ```
 colcon build --symlink-install --packages-skip ros1_bridge
 ```
-
+Next, you need to source the workspace that you just built in which you skipped the ros1_bridge:
+```
+cd ~/ros_bridge_ws
+source install/setup.bash
+```
 Next you need to source the ROS 1 environment, for Linux and ROS Melodic that would be:
 
 ```
