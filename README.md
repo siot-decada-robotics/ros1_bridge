@@ -359,3 +359,26 @@ Launch AddTwoInts client:
 . <ros2-install-dir>/setup.bash
 ros2 run demo_nodes_cpp add_two_ints_client
 ```
+
+## Example 3: run the bridge for AddTwoInts service
+
+To get the rmf demonstrations running with a free fleet server and client in simulation in ros1, you have to start the simulations in ros1 (i.e. turtlebot3 office simulation or caato mbc simulation).
+
+Then source your ros installations:
+```
+source /opt/ros/foxy/setup.bash
+source /opt/ros/noetic/setup.bash
+```
+
+Then, source your workspace
+
+```
+cd ~/rosbridge_ws
+source install/setup.bash
+```
+
+Then run the clock bridge
+
+```
+ros2 run ros1_bridge clock_bridge
+```
