@@ -73,6 +73,7 @@ You should first build everything but the ROS 1 bridge with normal colcon argume
 We don't recommend having your ROS 1 environment sourced during this step as it can add other libraries to the path.
 
 ```
+source /opt/ros/foxy/setup.bash
 colcon build --symlink-install --packages-skip ros1_bridge
 ```
 Next, you need to source the workspace that you just built in which you skipped the ros1_bridge:
