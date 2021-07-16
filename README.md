@@ -59,11 +59,14 @@ Therefore the `CMAKE_PREFIX_PATH` must not contain paths from ROS 1 which would 
 
 Here are the steps for Linux and OSX.
 
-First clone the ros_perception_plugins into your src folder in your bridge workspace:
+First clone the ros_perception_plugins into your src folder in your bridge workspace and checkout the the following commit:
 
 ```
 git clone -b ros2 https://github.com/ros-perception/image_transport_plugins.git
+cd image_transport_plugins
+git checkout 7cedbf04d5deb3b183d92756b912816ce7618aca
 ```
+
 After which build the workspace with foxy.
 
 You should first build everything but the ROS 1 bridge with normal colcon arguments.
