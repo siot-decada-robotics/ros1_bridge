@@ -86,28 +86,14 @@ Next you need to source the ROS 1 environment, for Linux and ROS Melodic that wo
 
 ```
 source /opt/ros/melodic/setup.bash
-# Or, on OSX, something like:
-# . ~/ros_catkin_ws/install_isolated/setup.bash
-```
-
-The bridge will be built with support for any message/service packages that are on your path and have an associated mapping between ROS 1 and ROS 2.
-Therefore you must add any ROS 1 or ROS 2 workspaces that have message/service packages that you want to be bridged to your path before building the bridge.
-This can be done by adding explicit dependencies on the message/service packages to the `package.xml` of the bridge, so that `colcon` will add them to the path before it builds the bridge.
-Alternatively you can do it manually by sourcing the relevant workspaces yourself, e.g.:
-
-```
-# You have already sourced your ROS installation.
-# Source your ROS 2 installation:
-. <install-space-with-ros2>/local_setup.bash
-# And if you have a ROS 1 overlay workspace, something like:
-# . <install-space-to-ros1-overlay-ws>/setup.bash
-# And if you have a ROS 2 overlay workspace, something like:
-# . <install-space-to-ros2-overlay-ws>/local_setup.bash
 ```
 
 Then build just the ROS 1 bridge:
 
 ```
+cd ~/ros_bridge_ws/src
+git clone https://github.com/siot-decada-robotics/ros1_bridge.git 
+cd ~/ros_bridge_ws
 colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure
 ```
 
