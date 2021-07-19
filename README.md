@@ -165,6 +165,7 @@ Now we start the ROS 2 listener from the `demo_nodes_cpp` ROS 2 package.
 . <install-space-with-ros2>/setup.bash
 ros2 run demo_nodes_cpp listener
 ```
+(btw samuel says this might not work -  some error about symbol lookup error)
 
 The ROS 2 node will start printing the received messages to the console.
 
